@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :student_id %>
-    <%= f.number_field :student_id %>
+    <%= f.select :student_id, Student.all.order(:family_name, :given_name).collect {|s|[(s.given_name + ' ' + s.family_name), s.id]} %>
   </div>
 
   <div class="actions">
