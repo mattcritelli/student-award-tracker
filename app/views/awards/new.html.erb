@@ -2,4 +2,5 @@
 
 <%= render 'form', award: @award %>
 
-<%= link_to 'Back', awards_path %>
+<%= link_to 'Show', [ @student, @award ] %>
+<%= link_to 'Back', student_awards_path(@student) %>

@@ -29,7 +29,7 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.save
-        format.html { redirect_to students_awards_url(@student), notice: 'Award was successfully created.' }
+        format.html { redirect_to student_awards_url(@student), notice: 'Award was successfully created.' }
         format.json { render :show, status: :created, location: @award }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class AwardsController < ApplicationController
   def update
     respond_to do |format|
       if @award.update(award_params)
-        format.html { redirect_to students_awards_url(@student), notice: 'Award was successfully updated.' }
+        format.html { redirect_to student_award_url(@student), notice: 'Award was successfully updated.' }
         format.json { render :show, status: :ok, location: @award }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class AwardsController < ApplicationController
   def destroy
     @award.destroy
     respond_to do |format|
-      format.html { redirect_to awards_url, notice: 'Award was successfully destroyed.' }
+      format.html { redirect_to student_awards_url(@student), notice: 'Award was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
