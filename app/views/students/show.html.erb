@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Student Data:</h1>
 <p>
   <strong>Given name:</strong>
   <%= @student.given_name %>
@@ -29,6 +29,19 @@
   <strong>Start date:</strong>
   <%= @student.start_date %>
 </p>
+
+<h2>List of student awards</h2>
+<% if @student.awards.blank? %>
+  <%= "This student has not won any awards" %>
+<% else %>
+  <% @student.awards.each do |award| %>
+    <ul>
+      <li> <%= award.name %> </li>
+    </ul>
+  <% end %>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
