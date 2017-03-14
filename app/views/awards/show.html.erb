@@ -12,7 +12,7 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @award.student.given_name + ' ' + @award.student.family_name %>
+  <%= @award.student.name %>
 </p>
 
 <%= link_to 'Edit', edit_award_path(@award) %> |
