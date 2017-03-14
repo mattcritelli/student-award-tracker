@@ -61,6 +61,25 @@ class StudentsController < ApplicationController
     end
   end
 
+  def courses
+    @student = Student.find(params[:id])
+    @courses = @student.courses
+  end
+
+  def course_add
+    @student = Student.find(params[:id])
+    @course = Course.find(params[:course])
+
+    unless @student.enrolled_in?(course)
+      @student.courses << @course
+      flash[:notice] = 'Student was successfully enrolled'
+    else
+      flash[:error] = 'Student was already enrolled'
+    end
+
+    redirect_to action: "courses", id: @student
+  end      
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
