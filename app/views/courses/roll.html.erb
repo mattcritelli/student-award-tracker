@@ -1,0 +1,25 @@
+<h1><%= "#{@course.name}" %></h1>
+
+<% if @course.students.count > 0 %>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>GPA</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @course.students.each do |student| %>
+        <tr>
+          <td><%= link_to(student.name, student_path(student)) %></td>
+          <td><%= student.grade_point_average %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No students are enrolled in this course.
+<% end %>
+
+<%= link_to 'Back', course_path(@course) %>
