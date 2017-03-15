@@ -61,7 +61,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  def roll_call
+  def roll
     @course = Course.find(params[:id])
   end
 
