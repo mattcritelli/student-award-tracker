@@ -76,9 +76,25 @@ class StudentsController < ApplicationController
     else
       flash[:error] = 'Student was already enrolled'
     end
-
     redirect_to action: "courses", id: @student
-  end      
+  end
+
+  def course_remove
+    @student = Student.find(params[:id])
+    course_ids = params[:courses]
+
+    if course_ids.any?
+      course_ids.each do |course_id|
+        course = Course.find(course_id)
+        if @student.enrolled_in(course)
+          logger.info "Removing student from course #{course.id}"
+          @student.courses.delete(course)
+          flash[:notice] = "Course was successfully deleted"
+        end
+      end
+    end
+    redirect_to action: "courses", id: @student
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
