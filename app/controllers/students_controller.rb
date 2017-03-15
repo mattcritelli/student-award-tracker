@@ -70,7 +70,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @course = Course.find(params[:course])
 
-    unless @student.enrolled_in?(course)
+    unless @student.enrolled_in?(@course)
       @student.courses << @course
       flash[:notice] = 'Student was successfully enrolled'
     else
@@ -86,7 +86,7 @@ class StudentsController < ApplicationController
     if course_ids.any?
       course_ids.each do |course_id|
         course = Course.find(course_id)
-        if @student.enrolled_in(course)
+        if @student.enrolled_in?(course)
           logger.info "Removing student from course #{course.id}"
           @student.courses.delete(course)
           flash[:notice] = "Course was successfully deleted"

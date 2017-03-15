@@ -11,7 +11,7 @@ class Student < ApplicationRecord
   end
 
   def unenrolled_courses
-    Courses.all - self.courses
+    Course.all - self.courses
   end
 
 end
