@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sessions
+
   resources :users
   resources :courses do
     member do
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
       post :course_remove
     end
   end
+
+  root to: 'students#index'
 end
