@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :courses do
     member do
       get :roll
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
       post :course_remove
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
