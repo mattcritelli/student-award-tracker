@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path, notice: "You must be logged in to use this feature" if current_user.nil?
   end
 
+  def is_admin?
+    redirect_to students_path, notice: "Not authorized" if current_user.nil? or !current_user.admin?
+  end
+
 end
