@@ -2,8 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin bodyshadow {
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px #888;
+}
+
+body {
+  @include bodyshadow;
+  padding: 4px;
+  width: 80%;
+}
+
+
 $blue: #0067A1;
   $student-color: $blue;
+
+$lime-green: #66FF00;
 
 body h1 {
   background-color: $student-color;
@@ -14,4 +29,15 @@ body h1 {
 
 td.name {
   color: $student-color;
+}
+
+a {
+  color: #0B3641;
+  &:hover {
+    background-color: #FFF;
+    color: #23C331;
+  }
+  &.destroy{
+    color: #DB4327;
+  }
 }
