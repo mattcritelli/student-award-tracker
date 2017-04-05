@@ -41,3 +41,13 @@ a {
     color: #DB4327;
   }
 }
+
+div.curFocus {
+  background: #fdecb2;
+  @include bodyshadow;
+  width: 250px;
+}
+
+div.field {
+  padding: 10px;
+}
