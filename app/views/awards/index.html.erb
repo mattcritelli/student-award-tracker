@@ -21,7 +21,7 @@
           <td><%= award.student.name %></td>
           <td><%= link_to 'Show', [ @student, award ] %></td>
           <td><%= link_to 'Edit', edit_student_award_path( @student, award ) %></td>
-          <td><%= link_to 'Destroy', [ @student, award ], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', [ @student, award ], method: :delete, data: { confirm: 'Are you sure?' }, class: :destroy %></td>
         </tr>
       <% end %>
     </tbody>
